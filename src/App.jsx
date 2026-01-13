@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -15,19 +14,22 @@ export default function App() {
   useEffect(() => {
     // Smooth scrolling for anchor links
     const links = document.querySelectorAll('a[href^="#"]');
+    
+    const handleClick = (e) => {
+      e.preventDefault();
+      const target = document.querySelector(e.target.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
     links.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
+      link.addEventListener('click', handleClick);
     });
 
     return () => {
       links.forEach(link => {
-        link.removeEventListener('click', () => {});
+        link.removeEventListener('click', handleClick);
       });
     };
   }, []);
