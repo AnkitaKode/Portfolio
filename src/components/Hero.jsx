@@ -202,7 +202,11 @@ export default function Hero() {
             transition={{ delay: 1 }}
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
-            <motion.button
+            <motion.a
+              href="https://drive.google.com/file/d/1Burze1RHqiybvD-aQda84NFPXu31f5SC/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              download
               whileHover={{ scale: 1.05, y: -3 }}
               whileTap={{ scale: 0.95 }}
               className="group relative overflow-hidden bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white px-10 py-5 rounded-2xl font-semibold text-lg shadow-2xl transition-all duration-300"
@@ -219,8 +223,8 @@ export default function Hero() {
                 className="absolute inset-0 bg-white/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-2xl blur-xl"
                 initial={false}
               />
-            </motion.button>
-            
+            </motion.a>
+
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.05, y: -3 }}
