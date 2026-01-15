@@ -169,12 +169,11 @@ export default function Skills() {
           transition={{ delay: 1.2 }}
           className="mt-16 text-center"
         >
-          <h3 className="text-2xl font-bold text-white mb-8">Additional Technologies & Tools</h3>
+          <h3 className="text-2xl font-bold text-white mb-8">Additional Technologies & Certifications</h3>
           <div className="flex flex-wrap justify-center gap-4">
             {[
-              "Git", "Docker", "Kubernetes", "Jenkins", "JIRA", "Confluence",
-              "VS Code", "IntelliJ IDEA", "Postman", "Figma", "Adobe Creative Suite",
-              "Linux", "Windows", "macOS"
+              "Oracle", "Coursera", "Udemy", "Google Cloud", "AWS", "Docker", "Jenkins", "Gemini",
+              "VS Code", "IntelliJ IDEA", "GPT", "Windows", "macOS"
             ].map((tech, index) => (
               <motion.span
                 key={tech}
