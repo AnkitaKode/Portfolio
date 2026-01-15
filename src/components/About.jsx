@@ -3,9 +3,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Calendar, MapPin, GraduationCap, Briefcase, Award, Code2, Brain, Users, BarChart } from 'lucide-react';
-import AnimatedBrain from './AnimatedBrain';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
 
 
 export default function About() {
