@@ -94,7 +94,8 @@ export default function Navbar() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 text-white hover:bg-white/10 transition-all duration-300"
+            className="md:hidden p-2 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 text-white hover:bg-white/10 transition-all duration-150"
+            aria-label="Toggle menu"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </motion.button>
@@ -108,12 +109,13 @@ export default function Navbar() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden overflow-hidden"
+              style={{ zIndex: 100 }}
             >
               <motion.div
                 initial={{ y: -20 }}
                 animate={{ y: 0 }}
                 exit={{ y: -20 }}
-                className="py-4 space-y-2 bg-gray-900/95 backdrop-blur-md rounded-2xl border border-white/10 mt-4 mx-4"
+                className="py-4 space-y-2 bg-gray-900/95 backdrop-blur-md rounded-2xl border border-white/10 mt-4 mx-2"
               >
                 {navItems.map((item, index) => (
                   <motion.button
@@ -123,7 +125,7 @@ export default function Navbar() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ x: 10 }}
-                    className="w-full text-left px-6 py-3 text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-300 rounded-xl mx-2"
+                    className="w-full text-left px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-150 rounded-xl mx-1 text-base"
                   >
                     <span className="flex items-center space-x-3">
                       <item.icon className="w-5 h-5" />

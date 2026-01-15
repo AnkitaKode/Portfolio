@@ -1,0 +1,22 @@
+
+/* Responsive utility classes for mobile compatibility */
+@media (max-width: 640px) {
+	.text-5xl { font-size: 2.25rem !important; }
+	.md\:text-7xl, .lg\:text-8xl { font-size: 2.75rem !important; }
+	.max-w-7xl, .max-w-5xl, .max-w-6xl { max-width: 95vw !important; }
+	.px-4, .sm\:px-6, .lg\:px-8 { padding-left: 1rem !important; padding-right: 1rem !important; }
+	.py-4, .py-8 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+	.rounded-2xl, .rounded-3xl, .rounded-xl { border-radius: 1rem !important; }
+	.grid-cols-2, .md\:grid-cols-4 { grid-template-columns: 1fr !important; }
+	.gap-6 { gap: 1rem !important; }
+	.mt-24, .my-16, .mt-12 { margin-top: 1.5rem !important; margin-bottom: 1.5rem !important; }
+}
+
+/* Reduce animation durations for faster appearance */
+.duration-300 { transition-duration: 150ms !important; }
+.duration-500 { transition-duration: 200ms !important; }
+.duration-800 { transition-duration: 300ms !important; }
+.duration-1000 { transition-duration: 400ms !important; }
+
+/* Ensure images and canvas are responsive */
+img, canvas { max-width: 100%; height: auto; }
