@@ -173,7 +173,7 @@ export default function Skills() {
           <div className="flex flex-wrap justify-center gap-4">
             {[
               "Oracle", "Coursera", "Udemy", "Google Cloud", "AWS", "Docker", "Jenkins", "Gemini",
-              "VS Code"
+              "VS Code", "LLM", "RAG", "AI Integration"
             ].map((tech, index) => (
               <motion.span
                 key={tech}

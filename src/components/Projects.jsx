@@ -6,6 +6,30 @@ export default function Projects() {
   const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
 
 const projects = [
+    {
+  title: "AI Resume Analyzer – LLM + RAG Based Resume Intelligence Platform",
+  description:
+    "Built a full-stack AI platform that analyzes resumes, generates ATS feedback, and provides improvement suggestions using LLMs and Retrieval-Augmented Generation.",
+  tech: [
+    "Java",
+    "Spring Boot",
+    "React.js",
+    "PostgreSQL",
+    "OpenAI API",
+    "pgvector",
+    "REST APIs"
+  ],
+  features: [
+    "AI-Powered Resume Scoring",
+    "RAG-Based Context Retrieval",
+    "Vector Embeddings with pgvector",
+    "Resume Upload & Text Extraction",
+    "Chat Interface for Skill-Gap Queries",
+    "ATS Feedback & Improvement Suggestions"
+  ],
+  link: "https://ai-resume-analyzer-rag.vercel.app/",
+  gradient: "from-blue-500 to-cyan-500"
+},
   {
     title: "StreamNet – Real-Time Chat & Video Platform",
     description:

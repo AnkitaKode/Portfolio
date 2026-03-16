@@ -10,7 +10,7 @@ export default function Experience() {
     {
       title: "Java Full Stack Developer",
       company: "Eduskill Foundation",
-      period: "Oct 2025 - Dec 2025",
+      period: "Jan 2026 - Mar 2026",
       description: "Developed web app with advanced features including RestAPI integrations, authentication and role-based access control.",
       achievements: [
         "Developed and maintained full-stack applications using Java ,React and SQL Server.",

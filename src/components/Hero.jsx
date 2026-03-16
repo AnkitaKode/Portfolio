@@ -107,6 +107,12 @@ export default function Hero() {
                     colors: "from-blue-500 to-indigo-600", 
                     delay: 1.3,
                     description: "Java • Spring Boot • Rest APIs"
+                  },
+                  { 
+                    text: "AI Application Development", 
+                    colors: "from-purple-500 to-pink-600", 
+                    delay: 1.1,
+                    description: "LLM • RAG • AI Integration"
                   }
                 ].map((item, index) => (
                   <motion.div
