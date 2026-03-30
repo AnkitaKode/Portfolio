@@ -209,7 +209,7 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
             <motion.a
-              href="https://drive.google.com/file/d/1Burze1RHqiybvD-aQda84NFPXu31f5SC/view?usp=sharing"
+              href="https://drive.google.com/file/d/1hZyQHwiZ15XuXMEXPxSq4msqzVZHX1YK/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               download
