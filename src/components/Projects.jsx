@@ -21,7 +21,23 @@ export default function Projects() {
       ],
       link: "https://ai-resume-analyzer-rag.vercel.app/",
       gradient: "from-blue-500 to-cyan-500"
-    },
+    },{
+  title: "HormoCare AI – PCOS Risk Assessment Web Application",
+  description:
+    "Developed a PCOS risk assessment platform that analyzes menstrual, BMI, hormonal, diet, and lifestyle data to generate real-time risk scores with personalized health recommendations.",
+  tech: ["HTML", "CSS", "JavaScript", "PWA"],
+  features: [
+    "AI-Based Risk Scoring (0–100)",
+    "Symptom Tracking (Cycle, Acne, Hair Fall, Mood, Sleep)",
+    "Diet Tracker & Weekly Meal Plans",
+    "Personalized Health Recommendations",
+    "Risk Visualization & Insights",
+    "Client-Side Data Storage with Export",
+    "Healthcare Integration Ready"
+  ],
+  link: "https://hormocare-ai-production.up.railway.app/",
+  gradient: "from-pink-500 to-rose-500"
+},
     {
       title: "StreamNet – Real-Time Chat & Video Platform",
       description:
