@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Code, Server, Database, Brain, Globe } from 'lucide-react';
+import { Code, Server, Database, Brain, Globe, Network, Cpu } from 'lucide-react';
 
 export default function Skills() {
   const [ref, inView] = useInView({ threshold: 0.15, triggerOnce: true });
