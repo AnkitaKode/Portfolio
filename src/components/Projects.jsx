@@ -20,7 +20,7 @@ export default function Projects() {
         "Chat Interface for Skill-Gap Queries",
         "ATS Feedback & Suggestions"
       ],
-      link: "https://ai-resume-analyzer-rag.vercel.app/"
+      link: "https://ai-resume-analyzer-rag.vercel.app"
     },
     {
       title: "HormoCare AI – PCOS Risk Assessment App",
@@ -35,7 +35,7 @@ export default function Projects() {
         "Risk Visualization & Insights",
         "Client-Side Data Storage & Export"
       ],
-      link: "https://hormocare-ai-production.up.railway.app/"
+      link: "https://hormo-care-ai-woad.vercel.app"
     },
     {
       title: "StreamNet – Real-Time Chat & Video Platform",

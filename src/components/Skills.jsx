@@ -27,18 +27,13 @@ const skillCategories = [
     skills: [
       { name: "Java (Core Java & OOP)" },
       { name: "Spring Boot" },
-      { name: "Spring MVC" },
-      { name: "Spring Security" },
       { name: "Spring Data JPA" },
       { name: "Hibernate & JDBC" },
       { name: "RESTful API Development" },
       { name: "JWT Authentication" },
       { name: "OAuth 2.0 / Google OAuth" },
-      { name: "Microservices Architecture" },
       { name: "Exception Handling" },
-      { name: "Multithreading" },
-      { name: "SOLID Principles" },
-      { name: "C / C++ / Python" }
+      { name: "Multithreading" }
     ]
   },
   {
@@ -54,21 +49,6 @@ const skillCategories = [
       { name: "Database Design" },
       { name: "Joins & Indexing" },
       { name: "Vector Databases" }
-    ]
-  },
-  {
-    title: "System Design & Architecture",
-    icon: Network,
-    gradient: "from-violet-500 to-purple-500",
-    skills: [
-      { name: "Low-Level Design (LLD)" },
-      { name: "High-Level Design (HLD)" },
-      { name: "Object-Oriented Design" },
-      { name: "Design Patterns" },
-      { name: "SOLID Principles" },
-      { name: "Microservices Design" },
-      { name: "API Design" },
-      { name: "Distributed Systems Fundamentals" }
     ]
   },
   {
@@ -93,8 +73,6 @@ const skillCategories = [
       { name: "Maven" },
       { name: "Docker" },
       { name: "CI/CD Pipelines" },
-      { name: "Jenkins" },
-      { name: "Linux / CLI" },
       { name: "Postman" },
       { name: "JUnit" },
       { name: "OpenAPI / Swagger" },
@@ -113,23 +91,21 @@ const skillCategories = [
       { name: "Semantic Search" },
       { name: "Spring AI" },
       { name: "OpenAI APIs" },
-      { name: "Gemini API" },
       { name: "LLM Integration" },
-      { name: "Prompt Engineering" },
       { name: "AI Agent Integration" }
     ]
   }
 ];
 
 const additionalTags = [
+  "SOLID Principles",
+  "Design Patterns",
   "Oracle",
   "Coursera",
   "Udemy",
   "Google Cloud",
   "AWS",
   "Docker",
-  "Jenkins",
-  "Firebase",
   "WebRTC",
   "Spring Security",
   "JWT",
