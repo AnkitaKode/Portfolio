@@ -8,15 +8,4 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          'three-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
-          'framer-motion': ['framer-motion'],
-          'lucide': ['lucide-react']
-        }
-      }
-    }
-  }
 })
