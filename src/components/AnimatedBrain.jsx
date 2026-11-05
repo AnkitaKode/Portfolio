@@ -1,4 +1,3 @@
-
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
@@ -6,31 +5,33 @@ import * as THREE from 'three';
 
 function BrainParticles() {
   const ref = useRef();
-  const [sphere] = useMemo(() => {
-    const sphere = new Float32Array(2000 * 3);
-    const connections = new Float32Array(1000 * 6);
+
+  const sphere = useMemo(() => {
+    const count = 900;
+    const positions = new Float32Array(count * 3);
     
     // Create brain-like structure with interconnected nodes
-    for (let i = 0; i < 2000; i++) {
+    for (let i = 0; i < count; i++) {
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(Math.random() * 2 - 1);
-      const radius = 2 + Math.random() * 3;
+      const radius = 2 + Math.random() * 2.8;
       
-      sphere[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
-      sphere[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
-      sphere[i * 3 + 2] = radius * Math.cos(phi);
+      positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
+      positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+      positions[i * 3 + 2] = radius * Math.cos(phi);
     }
     
-    return [sphere, connections];
+    return positions;
   }, []);
 
   useFrame((state, delta) => {
     if (ref.current) {
-      ref.current.rotation.x -= delta / 15;
-      ref.current.rotation.y -= delta / 20;
+      const d = Math.min(delta, 0.05);
+      ref.current.rotation.x -= d * 0.05;
+      ref.current.rotation.y -= d * 0.07;
       
-      // Pulsing effect
-      const scale = 1 + Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
+      // Gentle pulsing effect
+      const scale = 1 + Math.sin(state.clock.elapsedTime * 0.4) * 0.06;
       ref.current.scale.setScalar(scale);
     }
   });
@@ -40,8 +41,8 @@ function BrainParticles() {
       <Points ref={ref} positions={sphere} stride={3} frustumCulled={false}>
         <PointMaterial
           transparent
-          color="#6366f1"
-          size={0.015}
+          color="#818cf8"
+          size={0.02}
           sizeAttenuation={true}
           depthWrite={false}
           blending={THREE.AdditiveBlending}
@@ -55,32 +56,30 @@ function NeuralConnections() {
   const ref = useRef();
   
   const connections = useMemo(() => {
-    const lines = [];
-    const positions = [];
+    const count = 70;
+    const positions = new Float32Array(count * 6);
     
-    for (let i = 0; i < 150; i++) {
-      const start = new THREE.Vector3(
-        (Math.random() - 0.5) * 8,
-        (Math.random() - 0.5) * 8,
-        (Math.random() - 0.5) * 8
-      );
-      const end = new THREE.Vector3(
-        (Math.random() - 0.5) * 8,
-        (Math.random() - 0.5) * 8,
-        (Math.random() - 0.5) * 8
-      );
-      
-      positions.push(start.x, start.y, start.z);
-      positions.push(end.x, end.y, end.z);
+    for (let i = 0; i < count; i++) {
+      const idx = i * 6;
+      positions[idx] = (Math.random() - 0.5) * 7;
+      positions[idx + 1] = (Math.random() - 0.5) * 7;
+      positions[idx + 2] = (Math.random() - 0.5) * 7;
+
+      positions[idx + 3] = (Math.random() - 0.5) * 7;
+      positions[idx + 4] = (Math.random() - 0.5) * 7;
+      positions[idx + 5] = (Math.random() - 0.5) * 7;
     }
     
-    return new Float32Array(positions);
+    return positions;
   }, []);
 
-  useFrame((state) => {
+  useFrame((state, delta) => {
     if (ref.current) {
-      ref.current.rotation.y = state.clock.elapsedTime * 0.1;
-      ref.current.material.opacity = 0.1 + Math.sin(state.clock.elapsedTime) * 0.05;
+      const d = Math.min(delta, 0.05);
+      ref.current.rotation.y += d * 0.06;
+      if (ref.current.material) {
+        ref.current.material.opacity = 0.12 + Math.sin(state.clock.elapsedTime * 0.8) * 0.04;
+      }
     }
   });
 
@@ -95,7 +94,7 @@ function NeuralConnections() {
         />
       </bufferGeometry>
       <lineBasicMaterial
-        color="#8b5cf6"
+        color="#a855f7"
         transparent
         opacity={0.15}
         blending={THREE.AdditiveBlending}
@@ -104,62 +103,56 @@ function NeuralConnections() {
   );
 }
 
-export default function AnimatedBrain() {
+const FloatingDots = React.memo(function FloatingDots() {
+  const dots = useMemo(() => {
+    return Array.from({ length: 12 }, (_, i) => ({
+      id: i,
+      left: `${(i * 8.3 + 4) % 96}%`,
+      top: `${(i * 17.1 + 7) % 94}%`,
+      delay: `${(i * 0.4) % 4}s`,
+      duration: `${4 + (i % 4)}s`,
+      size: i % 3 === 0 ? 'w-2 h-2' : 'w-1.5 h-1.5'
+    }));
+  }, []);
+
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {/* Enhanced gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-indigo-950/30 to-purple-950/30" />
-      
-      {/* Animated mesh background */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-indigo-500/10 to-purple-500/10 animate-pulse" 
-             style={{ 
-               backgroundImage: `radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
-                                radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 50%)`,
-               animation: 'float 6s ease-in-out infinite'
-             }} />
-      </div>
-      
-      {/* 3D Canvas */}
+      {dots.map((dot) => (
+        <div
+          key={dot.id}
+          className={`absolute ${dot.size} bg-indigo-400/25 rounded-full animate-pulse`}
+          style={{
+            left: dot.left,
+            top: dot.top,
+            animationDelay: dot.delay,
+            animationDuration: dot.duration
+          }}
+        />
+      ))}
+    </div>
+  );
+});
+
+function AnimatedBrain() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* 3D Canvas with restricted DPR and high-performance settings */}
       <Canvas
         camera={{ position: [0, 0, 8], fov: 60 }}
-        className="absolute inset-0"
-        style={{ background: 'transparent' }}
+        dpr={[1, 1.5]}
+        gl={{ antialias: false, powerPreference: 'high-performance', alpha: true }}
+        className="w-full h-full"
+        style={{ pointerEvents: 'none' }}
       >
-        <ambientLight intensity={0.3} />
-        <pointLight position={[10, 10, 10]} intensity={0.5} color="#6366f1" />
-        <pointLight position={[-10, -10, -10]} intensity={0.3} color="#8b5cf6" />
-        
+        <ambientLight intensity={0.4} />
         <BrainParticles />
         <NeuralConnections />
-        
-        {/* Additional atmospheric elements */}
-        <mesh position={[0, 0, -5]} scale={[20, 20, 1]}>
-          <planeGeometry />
-          <meshBasicMaterial
-            color="#1e1b4b"
-            transparent
-            opacity={0.1}
-            blending={THREE.AdditiveBlending}
-          />
-        </mesh>
       </Canvas>
       
-      {/* Floating elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-indigo-400/30 rounded-full animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 4}s`
-            }}
-          />
-        ))}
-      </div>
+      {/* Lightweight floating ambiance */}
+      <FloatingDots />
     </div>
   );
 }
+
+export default React.memo(AnimatedBrain);

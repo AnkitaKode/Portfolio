@@ -12,34 +12,36 @@ import './App.css';
 
 export default function App() {
   useEffect(() => {
-    // Smooth scrolling for anchor links
-    const links = document.querySelectorAll('a[href^="#"]');
-    
-    const handleClick = (e) => {
-      e.preventDefault();
-      const target = document.querySelector(e.target.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
+    // Safe smooth scrolling for hash links
+    const handleAnchorClick = (e) => {
+      const anchor = e.target.closest('a[href^="#"]');
+      if (!anchor) return;
+      
+      const href = anchor.getAttribute('href');
+      if (href && href.length > 1) {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+          // Update URL hash without jumping
+          window.history.pushState(null, '', href);
+        }
       }
     };
 
-    links.forEach(link => {
-      link.addEventListener('click', handleClick);
-    });
-
-    return () => {
-      links.forEach(link => {
-        link.removeEventListener('click', handleClick);
-      });
-    };
+    document.addEventListener('click', handleAnchorClick);
+    return () => document.removeEventListener('click', handleAnchorClick);
   }, []);
 
   return (
-    <div className="bg-gradient-to-br from-gray-900 via-gray-900 to-gray-900/60 min-h-screen font-inter relative overflow-hidden">
+    <div className="min-h-screen text-gray-100 relative overflow-x-hidden selection:bg-indigo-500 selection:text-white">
+      {/* Fixed single-instance 3D background */}
       <AnimatedBackground />
-      <div className="relative z-10">
+
+      {/* Main interactive page content */}
+      <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar />
-        <main>
+        <main className="flex-grow">
           <Hero />
           <About />
           <Skills />

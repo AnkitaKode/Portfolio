@@ -1,200 +1,197 @@
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { ExternalLink, Github } from "lucide-react";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { ExternalLink, Github, FolderOpen } from 'lucide-react';
 
 export default function Projects() {
-  const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true });
+  const [ref, inView] = useInView({ threshold: 0.15, triggerOnce: true });
 
   const projects = [
     {
-      title: "AI Resume Analyzer – LLM + RAG Based Resume Intelligence Platform",
+      title: "AI Resume Analyzer – LLM + RAG Platform",
       description:
-        "Built a full-stack AI platform that analyzes resumes, generates ATS feedback, and provides improvement suggestions using LLMs and Retrieval-Augmented Generation.",
-      tech: ["Java", "Spring Boot", "React.js", "PostgreSQL", "OpenAI API", "pgvector", "REST APIs"],
+        "Full-stack AI platform that analyzes resumes, scores ATS compliance, and generates intelligent feedback with skill-gap queries using LLMs and Retrieval-Augmented Generation.",
+      tech: ["Java", "Spring Boot", "React.js", "PostgreSQL", "pgvector", "OpenAI API", "REST APIs"],
       features: [
         "AI-Powered Resume Scoring",
         "RAG-Based Context Retrieval",
         "Vector Embeddings with pgvector",
         "Resume Upload & Text Extraction",
         "Chat Interface for Skill-Gap Queries",
-        "ATS Feedback & Improvement Suggestions"
+        "ATS Feedback & Suggestions"
       ],
-      link: "https://ai-resume-analyzer-rag.vercel.app/",
-      gradient: "from-blue-500 to-cyan-500"
-    },{
-  title: "HormoCare AI – PCOS Risk Assessment Web Application",
-  description:
-    "Developed a PCOS risk assessment platform that analyzes menstrual, BMI, hormonal, diet, and lifestyle data to generate real-time risk scores with personalized health recommendations.",
-  tech: ["HTML", "CSS", "JavaScript", "PWA"],
-  features: [
-    "AI-Based Risk Scoring (0–100)",
-    "Symptom Tracking (Cycle, Acne, Hair Fall, Mood, Sleep)",
-    "Diet Tracker & Weekly Meal Plans",
-    "Personalized Health Recommendations",
-    "Risk Visualization & Insights",
-    "Client-Side Data Storage with Export",
-    "Healthcare Integration Ready"
-  ],
-  link: "https://hormocare-ai-production.up.railway.app/",
-  gradient: "from-pink-500 to-rose-500"
-},
+      link: "https://ai-resume-analyzer-rag.vercel.app/"
+    },
+    {
+      title: "HormoCare AI – PCOS Risk Assessment App",
+      description:
+        "Health platform analyzing menstrual, BMI, hormonal, and lifestyle data to provide real-time risk scores with personalized dietary and health recommendations.",
+      tech: ["HTML5", "CSS3", "JavaScript", "PWA", "Local Storage", "Chart.js"],
+      features: [
+        "AI-Based Risk Scoring (0–100)",
+        "Symptom Tracking (Cycle, Mood, Sleep)",
+        "Diet Tracker & Weekly Meal Plans",
+        "Personalized Health Recommendations",
+        "Risk Visualization & Insights",
+        "Client-Side Data Storage & Export"
+      ],
+      link: "https://hormocare-ai-production.up.railway.app/"
+    },
     {
       title: "StreamNet – Real-Time Chat & Video Platform",
       description:
-        "Engineered a real-time communication platform supporting one-to-one and group video calls with low-latency streaming and secure session handling.",
+        "Engineered a real-time communication platform supporting 1-on-1 and group video calls with low-latency streaming and secure session handling.",
       tech: ["React.js", "Spring Boot", "MySQL", "WebRTC", "JWT", "Tailwind CSS"],
       features: [
-        "One-to-One & Group Video Calls",
+        "1-on-1 & Group Video Calls",
         "Real-Time Chat Messaging",
         "Low-Latency WebRTC Streaming",
         "JWT-Based Authentication",
-        "Responsive UI"
+        "Fully Responsive Web Layout"
       ],
-      link: "https://stream-net-delta.vercel.app",
-      gradient: "from-purple-500 to-pink-500"
+      link: "https://stream-net-delta.vercel.app"
     },
     {
-      title: "ShareNet – Community Resource Sharing Platform",
+      title: "ShareNet – Community Resource Sharing",
       description:
-        "Built a peer-to-peer resource sharing platform with credit-based access control and geolocation-based listings.",
+        "Peer-to-peer resource sharing platform with credit-based access control, geolocation-based listings, and real-time messaging.",
       tech: ["Spring Boot", "React.js", "PostgreSQL", "JWT", "REST APIs"],
       features: [
         "Credit-Based Resource Sharing",
         "Geolocation-Based Listings",
         "Secure Media Uploads",
-        "Real-Time Chat",
-        "Optimized APIs"
+        "Real-Time Direct Chat",
+        "Optimized Backend APIs"
       ],
-      link: "https://sharex-net.vercel.app",
-      gradient: "from-blue-500 to-cyan-500"
+      link: "https://sharex-net.vercel.app"
     },
     {
       title: "QuantexAI – AI Chrome Extension",
       description:
-        "AI-powered Chrome extension for real-time content summarization and structured note management.",
-      tech: ["JavaScript", "Chrome Extensions", "REST APIs", "jsPDF"],
+        "AI-powered Chrome extension for real-time web content summarization, structured note-taking, and PDF documentation exports.",
+      tech: ["JavaScript", "Chrome Extensions API", "REST APIs", "jsPDF"],
       features: [
-        "Content Extraction",
-        "AI Summarization",
-        "Tag-Based Notes",
-        "PDF Export",
-        "Secure Storage"
+        "One-Click Content Extraction",
+        "AI Fast Summarization",
+        "Tag-Based Note Organizing",
+        "PDF Document Export",
+        "Encrypted Local Storage"
       ],
-      github: "https://github.com/ankitakode/quantexai",
-      gradient: "from-green-500 to-teal-500"
+      github: "https://github.com/ankitakode/quantexai"
     },
     {
       title: "E-Healthcare Platform",
       description:
-        "Web platform providing online consultation, appointment booking, and health monitoring.",
-      tech: ["Java", "JSP", "MySQL", "MVC"],
+        "Enterprise healthcare web portal providing digital appointment booking, telemedicine consultations, and patient health monitoring.",
+      tech: ["Java", "JSP", "Servlet", "MySQL", "MVC Architecture"],
       features: [
-        "Appointment Booking",
-        "Online Consultation",
-        "Medicine Access",
-        "Health Monitoring",
-        "Emergency Services"
+        "Doctor Appointment Booking",
+        "Online Consultations",
+        "Digital Prescription Records",
+        "Health Vitals Tracking",
+        "Emergency Care Directory"
       ],
-      github: "https://github.com/AnkitaKode/E-Healthcare",
-      gradient: "from-red-500 to-pink-500"
+      github: "https://github.com/AnkitaKode/E-Healthcare"
     }
   ];
 
   return (
-    <section id="projects" ref={ref} className="py-20 bg-gray-800">
-      <div className="max-w-6xl mx-auto px-4">
-
+    <section id="projects" ref={ref} className="py-16 sm:py-24 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Heading */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.4 }}
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <div className="inline-flex items-center space-x-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full px-4 sm:px-5 py-2 mb-4">
+            <FolderOpen className="w-4 h-4 text-indigo-400" />
+            <span className="text-indigo-300 font-medium text-xs sm:text-sm">Featured Work</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6">
             Featured Projects
           </h2>
-          <div className="w-24 h-1 bg-indigo-600 mx-auto rounded-full"></div>
+          <div className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full"></div>
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-gray-900 p-8 rounded-2xl hover:scale-105 transition-all duration-300 shadow-xl border border-gray-700 hover:border-indigo-500/40"
+              transition={{ duration: 0.3, delay: 0.1 + index * 0.08 }}
+              className="bg-gray-900/60 border border-white/10 hover:border-indigo-500/40 p-5 sm:p-7 rounded-2xl sm:rounded-3xl flex flex-col justify-between transition-all duration-200"
             >
+              <div>
+                {/* Title */}
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-3">
+                  {project.title}
+                </h3>
 
-              {/* Title */}
-              <h3 className="text-2xl font-bold text-white mb-4">
-                {project.title}
-              </h3>
+                {/* Description */}
+                <p className="text-gray-300 mb-5 text-xs sm:text-sm leading-relaxed">
+                  {project.description}
+                </p>
 
-              {/* Description */}
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                {project.description}
-              </p>
+                {/* Links */}
+                <div className="flex flex-wrap gap-2.5 mb-5">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 bg-white/5 hover:bg-white/10 border border-white/10 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm text-gray-200 hover:text-white transition-colors"
+                    >
+                      <Github size={15} />
+                      Code
+                    </a>
+                  )}
 
-              {/* Buttons */}
-              <div className="flex gap-3 mb-6">
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 bg-indigo-600/30 hover:bg-indigo-600/50 border border-indigo-500/30 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm text-indigo-200 hover:text-white transition-colors"
+                    >
+                      <ExternalLink size={15} />
+                      Live Demo
+                    </a>
+                  )}
+                </div>
 
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-gray-800 hover:bg-indigo-600 px-4 py-2 rounded-lg text-sm text-gray-300 hover:text-white transition"
-                  >
-                    <Github size={16} />
-                    Code
-                  </a>
-                )}
-
-                {project.link && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-gray-800 hover:bg-indigo-600 px-4 py-2 rounded-lg text-sm text-gray-300 hover:text-white transition"
-                  >
-                    <ExternalLink size={16} />
-                    Live
-                  </a>
-                )}
-
+                {/* Features List */}
+                <div className="mb-5">
+                  <h4 className="text-xs sm:text-sm font-semibold text-gray-200 mb-2">Key Features:</h4>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                    {project.features.map((f) => (
+                      <li key={f} className="text-gray-400 text-xs flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span>
+                        <span className="truncate">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
-              {/* Features */}
-              <div className="mb-6">
-                <h4 className="text-white font-semibold mb-3">Key Features:</h4>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {project.features.map((f) => (
-                    <li key={f} className="text-gray-300 text-sm">
-                      • {f}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2">
+              {/* Tech Stack Tags */}
+              <div className="flex flex-wrap gap-1.5 pt-3 border-t border-white/5">
                 {project.tech.map((tech) => (
                   <span
                     key={tech}
-                    className="bg-indigo-600/20 text-indigo-300 px-3 py-1 rounded-full text-xs"
+                    className="bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 px-2.5 py-0.5 rounded-md text-[11px] font-medium"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
-
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );

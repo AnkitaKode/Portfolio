@@ -1,190 +1,239 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Code, Server, Database, Brain, Palette, Globe, Smartphone, Cloud } from 'lucide-react';
-import AnimatedBrain from './AnimatedBrain';
+import { Code, Server, Database, Brain, Globe } from 'lucide-react';
 
 export default function Skills() {
-  const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
+  const [ref, inView] = useInView({ threshold: 0.15, triggerOnce: true });
 
- const skillCategories = [
+const skillCategories = [
   {
     title: "Frontend Development",
     icon: Code,
     gradient: "from-blue-500 to-cyan-500",
     skills: [
-      { name: "React.js"},
+      { name: "React.js" },
+      { name: "JavaScript (ES6+)" },
+      { name: "HTML5 / CSS3" },
       { name: "Tailwind CSS" },
-      { name: "Framer Motion", level: 88 },
-      { name: "HTML5/CSS3", level: 95 },
-      { name: "Testing", level: 80 }
+      { name: "Responsive UI/UX" },
+      { name: "REST API Integration" }
     ]
   },
   {
     title: "Backend Development",
     icon: Server,
-    gradient: "from-green-500 to-emerald-500",
+    gradient: "from-emerald-500 to-green-500",
     skills: [
-      { name: "Java", level: 90 },
-      { name: "Springboot", level: 88 },
-      { name: "RESTful APIs", level: 92 },
-      { name: "Authentication & Security", level: 88 },
-      { name: "Microservices", level: 82 },
-       { name: "C++", level: 87 },
-      
+      { name: "Java (Core Java & OOP)" },
+      { name: "Spring Boot" },
+      { name: "Spring MVC" },
+      { name: "Spring Security" },
+      { name: "Spring Data JPA" },
+      { name: "Hibernate & JDBC" },
+      { name: "RESTful API Development" },
+      { name: "JWT Authentication" },
+      { name: "OAuth 2.0 / Google OAuth" },
+      { name: "Microservices Architecture" },
+      { name: "Exception Handling" },
+      { name: "Multithreading" },
+      { name: "SOLID Principles" },
+      { name: "C / C++ / Python" }
     ]
   },
   {
-    title: "Database & Cloud",
+    title: "Database & Data Management",
     icon: Database,
     gradient: "from-purple-500 to-pink-500",
     skills: [
-      
-      { name: "MySQL", level: 85 },
-      { name: "PostgreSQL", level: 80 },
-      { name: "MongoDB", level: 90 },
-      { name: "AWS", level: 75 },
-      { name: "Firebase", level: 85 },
-
+      { name: "MySQL" },
+      { name: "PostgreSQL" },
+      { name: "MongoDB" },
+      { name: "pgvector" },
+      { name: "SQL Query Optimization" },
+      { name: "Database Design" },
+      { name: "Joins & Indexing" },
+      { name: "Vector Databases" }
     ]
   },
-  
   {
-    title: "Tools & Technologies",
+    title: "System Design & Architecture",
+    icon: Network,
+    gradient: "from-violet-500 to-purple-500",
+    skills: [
+      { name: "Low-Level Design (LLD)" },
+      { name: "High-Level Design (HLD)" },
+      { name: "Object-Oriented Design" },
+      { name: "Design Patterns" },
+      { name: "SOLID Principles" },
+      { name: "Microservices Design" },
+      { name: "API Design" },
+      { name: "Distributed Systems Fundamentals" }
+    ]
+  },
+  {
+    title: "Core Computer Science",
+    icon: Cpu,
+    gradient: "from-cyan-500 to-blue-500",
+    skills: [
+      { name: "Data Structures & Algorithms" },
+      { name: "Object-Oriented Programming" },
+      { name: "Database Management Systems" },
+      { name: "Operating Systems" },
+      { name: "Computer Networks" },
+      { name: "SQL" }
+    ]
+  },
+  {
+    title: "Tools, Testing & DevOps",
     icon: Globe,
     gradient: "from-indigo-500 to-blue-500",
     skills: [
-      { name: "Git/GitHub", level: 95 },
-      { name: "CI/CD", level: 82 },
-      { name: "Testing", level: 85 },
-      { name: "Linux/Command Line", level: 88 },
-      { name: "VS Code / IDEs", level: 92 },
-      { name: "Docker", level: 80 },
+      { name: "Git / GitHub" },
+      { name: "Maven" },
+      { name: "Docker" },
+      { name: "CI/CD Pipelines" },
+      { name: "Jenkins" },
+      { name: "Linux / CLI" },
+      { name: "Postman" },
+      { name: "JUnit" },
+      { name: "OpenAPI / Swagger" },
+      { name: "IntelliJ IDEA / VS Code" }
     ]
   },
   {
-    title: "Soft Skills",
+    title: "AI & Emerging Technologies",
     icon: Brain,
-    gradient: "from-orange-500 to-red-500",
+    gradient: "from-orange-500 to-rose-500",
     skills: [
-      { name: "Analytical Thinking", level: 92 },
-      { name: "Communication", level: 88 },
-      { name: "Problem Solving", level: 90 },
-      { name: "Team Collaboration", level: 87 },
-      { name: "Leadership & Time Management", level: 88 },
-      { name: "Creativity & Adaptability", level: 86 }
+      { name: "Generative AI" },
+      { name: "Large Language Models (LLMs)" },
+      { name: "Retrieval-Augmented Generation (RAG)" },
+      { name: "Vector Embeddings" },
+      { name: "Semantic Search" },
+      { name: "Spring AI" },
+      { name: "OpenAI APIs" },
+      { name: "Gemini API" },
+      { name: "LLM Integration" },
+      { name: "Prompt Engineering" },
+      { name: "AI Agent Integration" }
     ]
   }
 ];
 
+const additionalTags = [
+  "Oracle",
+  "Coursera",
+  "Udemy",
+  "Google Cloud",
+  "AWS",
+  "Docker",
+  "Jenkins",
+  "Firebase",
+  "WebRTC",
+  "Spring Security",
+  "JWT",
+  "OAuth 2.0",
+  "Spring AI",
+  "RAG",
+  "LLM",
+  "Vector Embeddings",
+  "pgvector",
+  "Postman",
+  "JUnit",
+  "Swagger",
+  "Maven",
+  "GitHub",
+  "LLD",
+  "HLD",
+  "System Design",
+  "Microservices",
+  "React.js",
+  "SQL Optimization"
+];
 
   return (
-    <section id="skills" ref={ref} className="relative py-20 min-h-screen flex items-center justify-center overflow-hidden">
-      <AnimatedBrain />
-      
-      {/* Improved overlay with subtle texture */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-transparent to-gray-900/60 backdrop-blur-[1px]" />
-
+    <section id="skills" ref={ref} className="py-16 sm:py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.4 }}
+          className="text-center mb-12 sm:mb-16"
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 backdrop-blur-sm border border-indigo-500/30 rounded-full px-6 py-3 mb-6"
-          >
-            <Brain className="w-5 h-5 text-indigo-400" />
-            <span className="text-indigo-300 font-medium">Technical Expertise</span>
-          </motion.div>
+          <div className="inline-flex items-center space-x-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full px-4 sm:px-5 py-2 mb-4">
+            <Brain className="w-4 h-4 text-indigo-400" />
+            <span className="text-indigo-300 font-medium text-xs sm:text-sm">Technical Expertise</span>
+          </div>
           
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Skills &
-            <span className="block bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6">
+            Skills &{' '}
+            <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
               Technologies
             </span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            A comprehensive toolkit of modern technologies and frameworks that power innovative solutions.
+          <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            A comprehensive toolkit of modern technologies and frameworks powering performant, scalable applications.
           </p>
         </motion.div>
 
         {/* Skills Grid */}
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-          {skillCategories.map((category, categoryIndex) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {skillCategories.map((category, idx) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.3 + categoryIndex * 0.1 }}
-              whileHover={{ scale: 1.02, y: -5 }}
-              className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-8 hover:border-indigo-500/50 transition-all duration-500"
+              transition={{ delay: 0.1 + idx * 0.08, duration: 0.3 }}
+              className="bg-gray-900/60 border border-white/10 hover:border-indigo-500/40 rounded-2xl sm:rounded-3xl p-5 sm:p-7 transition-all duration-200"
             >
               {/* Category Header */}
-              <div className="flex items-center space-x-4 mb-8">
-                <div className={`w-14 h-14 bg-gradient-to-br ${category.gradient} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                  <category.icon className="w-7 h-7 text-white" />
+              <div className="flex items-center space-x-3.5 mb-6">
+                <div className={`w-11 h-11 sm:w-12 sm:h-12 bg-gradient-to-br ${category.gradient} rounded-xl sm:rounded-2xl flex items-center justify-center shadow-md flex-shrink-0`}>
+                  <category.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white group-hover:text-indigo-400 transition-colors duration-300">
+                  <h3 className="text-lg sm:text-xl font-bold text-white">
                     {category.title}
                   </h3>
-                  <div className={`w-12 h-1 bg-gradient-to-r ${category.gradient} rounded-full mt-2 group-hover:w-20 transition-all duration-300`}></div>
+                  <div className={`w-8 h-1 bg-gradient-to-r ${category.gradient} rounded-full mt-1.5`}></div>
                 </div>
               </div>
 
               {/* Skills List */}
-              <div className="space-y-6">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.div
+              <div className="space-y-2.5">
+                {category.skills.map((skill) => (
+                  <div
                     key={skill.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: 0.5 + categoryIndex * 0.1 + skillIndex * 0.05 }}
-                    className="group/skill"
+                    className="flex justify-between items-center py-2 px-3 bg-white/5 rounded-lg border border-white/5 hover:border-white/10 transition-colors"
                   >
-                    <div className="flex justify-between items-center py-2 px-3 bg-gray-800/50 rounded-lg group-hover/skill:bg-gray-700/50 transition-colors duration-300">
-                      <span className="text-gray-200 font-medium">
-                        {skill.name}
-                      </span>
-              
-                    </div>
-                  </motion.div>
+                    <span className="text-gray-200 font-medium text-xs sm:text-sm">
+                      {skill.name}
+                    </span>
+                  </div>
                 ))}
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Additional Technologies */}
+        {/* Additional Technologies Tags */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 1.2 }}
-          className="mt-16 text-center"
+          transition={{ delay: 0.3, duration: 0.4 }}
+          className="mt-12 sm:mt-16 text-center"
         >
-          <h3 className="text-2xl font-bold text-white mb-8">Additional Technologies & Certifications</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {[
-              "Oracle", "Coursera", "Udemy", "Google Cloud", "AWS", "Docker", "Jenkins", "Gemini",
-              "VS Code", "LLM", "RAG", "AI Integration"
-            ].map((tech, index) => (
-              <motion.span
+          <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">Additional Tools & Knowledge</h3>
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-4xl mx-auto">
+            {additionalTags.map((tech) => (
+              <span
                 key={tech}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: 1.4 + index * 0.05 }}
-                whileHover={{ scale: 1.1, y: -2 }}
-                className="bg-gradient-to-r from-gray-700/50 to-gray-800/50 backdrop-blur-sm border border-gray-600/50 hover:border-indigo-500/50 text-gray-300 hover:text-white px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 cursor-pointer"
+                className="bg-gray-800/80 hover:bg-gray-800 border border-gray-700/60 hover:border-indigo-500/50 text-gray-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-medium transition-all"
               >
                 {tech}
-              </motion.span>
+              </span>
             ))}
           </div>
         </motion.div>
